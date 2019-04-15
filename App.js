@@ -1,21 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleProvider } from 'native-base';
+import RootNavigator from './app/Navigator'
+import getTheme from './native-base-theme/components';
+import platform from './native-base-theme/variables/platform';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
+      
+      <StyleProvider style={getTheme(platform)}>
+          
+              <RootNavigator />
+          
+      </StyleProvider>
+
+  );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
